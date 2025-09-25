@@ -15,4 +15,18 @@ public class UIcontroller : MonoBehaviour
     {
         ScoreText.text = $"Score : {NewScore.ToString()}";
     }
+
+    //Fonction appeler a chaque activation du monobehavior
+    private void OnEnable()
+    {
+        //Bind entre la fonction UpdateTextScore avec OntargetCollected
+        PlayerCollect.OnTargetCollected += UpdateTextScore;
+    }
+    
+    //Faction appeler a chaque desactivation du monobehavior
+    private void OnDisable()
+    {
+        //Unbind entre la fonction UpdateTextScore avec OntargetCollected
+        PlayerCollect.OnTargetCollected -= UpdateTextScore;
+    }
 }
