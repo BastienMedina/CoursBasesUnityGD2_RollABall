@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 603110777947356068}
   - component: {fileID: 6527738802308997950}
   - component: {fileID: 1115359623439538235}
+  - component: {fileID: 8925024330570562837}
   - component: {fileID: 7270866861845049810}
   - component: {fileID: 441977292183540862}
   m_Layer: 0
@@ -32,8 +33,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.350165, y: 4.64, z: -4.64}
-  m_LocalScale: {x: 8, y: 8, z: 8}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -138,6 +139,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8925024330570562837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3770266861797615388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454a4085f3729c948b7b6a323de43ebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeathScreen: {fileID: 2571421463052317277, guid: 119da06c998234b4f9905e2501631314, type: 3}
+  ScoreScreen: {fileID: 581537734353861732, guid: 8f3952fb7aaf12441ab2e33e95d42140, type: 3}
 --- !u!114 &7270866861845049810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  JumpHeight: 10
 --- !u!114 &441977292183540862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,3 +180,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreData: {fileID: 11400000, guid: 81deb5ebf7f892e43b8159b0a39ff8f8, type: 2}
+  UIcontroller: {fileID: 6211542683165149886, guid: 8f3952fb7aaf12441ab2e33e95d42140, type: 3}
