@@ -4,6 +4,13 @@ public class DeadZoneDestroy : MonoBehaviour
 {
     void OnTriggerEnter(Collider Collider)
     {
-        Destroy(Collider.gameObject);
+        if (Collider.gameObject.GetComponent<Player>() == null)
+        {
+            Destroy(Collider.gameObject);
+        }
+        else
+        {
+            Collider.gameObject.GetComponent<Player>().Death();
+        }
     }
 }

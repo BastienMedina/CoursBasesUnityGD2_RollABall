@@ -1,2 +1,14 @@
 fileFormatVersion: 2
 guid: 454a4085f3729c948b7b6a323de43ebd
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - DeathScreen: {fileID: 2571421463052317277, guid: 119da06c998234b4f9905e2501631314, type: 3}
+  - ScoreScreen: {fileID: 581537734353861732, guid: 8f3952fb7aaf12441ab2e33e95d42140, type: 3}
+  - MainCamera: {fileID: 3675472668958602645, guid: 2af7656fd38ff414a9351d7ed19c8c8e, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -5,6 +5,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - Player: {fileID: 3770266861797615388, guid: 23d8cc941a92cba4194146a5504860a7, type: 3}
+  - RotationPoint: {fileID: 8382199213773764804, guid: 2ec026b25fbded349a698bc16b1dcfb8, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

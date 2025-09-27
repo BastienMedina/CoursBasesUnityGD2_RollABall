@@ -4,6 +4,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private GameObject DeathScreen;
     [SerializeField] private GameObject ScoreScreen;
+    [SerializeField] private GameObject MainCamera;
 
     void Start()
     {
@@ -14,8 +15,19 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Enemy>() != null)
         {
-            Destroy(gameObject);
-            Instantiate(DeathScreen);
+            Death();
         }
+        if (collision.gameObject.GetComponent<DeadZoneDestroy>()  != null)
+        {
+            Death();
+        }
+    }
+
+    public void Death()
+    {
+        Destroy(gameObject);
+        Destroy(ScoreScreen.gameObject);
+        Instantiate(DeathScreen);
+        Instantiate(MainCamera);
     }
 }
