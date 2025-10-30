@@ -2,13 +2,20 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] private GameObject Player;
-    [SerializeField] private GameObject RotationPoint;
+    [SerializeField] private GameObject _player;
+    
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = Player.transform.position;
-        transform.rotation = RotationPoint.transform.rotation;
+        if (_player != null)
+        {
+            transform.position = _player.transform.position;
+        }
+    }
+
+    public void SetTarget(GameObject newTarget)
+    {
+        _player = newTarget;
     }
 }
