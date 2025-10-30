@@ -1739,6 +1739,8 @@ MonoBehaviour:
   _cameraFollow: {fileID: 680937206}
   _buttonManager: {fileID: 1639482076}
   _deathScreen: {fileID: 480946029}
+  _collectible: {fileID: 11400000, guid: 4f3335fc3e5f020428dad633d7a69c96, type: 2}
+  _inventory: {fileID: 11400000, guid: ad94bde9ecbec3e4ca4f57b782a2b22e, type: 2}
 --- !u!4 &584085665
 Transform:
   m_ObjectHideFlags: 0

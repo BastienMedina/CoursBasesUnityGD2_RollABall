@@ -52,13 +52,16 @@ public class Gun : MonoBehaviour
 
     void LaunchBullet()
     {
-        GameObject bullet = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);
-        Rigidbody rb = bullet.GetComponent<Rigidbody>();
-        _collectManager.AddAmmo(-1);
-        if(rb != null)
+        if (_inventory.ammo > 0)
         {
-            rb.linearVelocity = _bulletSpawnPoint.forward * _bulletSpeed;
+            GameObject bullet = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);
+            Rigidbody rb = bullet.GetComponent<Rigidbody>();
+             _collectManager.AddAmmo(-1);
+            if(rb != null)
+            {
+                rb.linearVelocity = _bulletSpawnPoint.forward * _bulletSpeed;
+            }
+            Destroy(bullet, 3f);
         }
-        Destroy(bullet, 3f);
     }
 }
