@@ -19,11 +19,13 @@ public class PlayerMouvements : MonoBehaviour
     {
         _horizontalMovement = Input.GetAxis("Horizontal");
         _verticalMovement = Input.GetAxis("Vertical");
-        _movement = new Vector3(_horizontalMovement, _rb.linearVelocity.y, _verticalMovement);
+        _movement = new Vector3(_horizontalMovement, 0, _verticalMovement);
         _movement.Normalize();
+        Vector3 velocity = _movement * _speed;
+        velocity.y = _rb.linearVelocity.y;
         if (_rb != null)
         {
-            _rb.linearVelocity = _movement * _speed;
+            _rb.linearVelocity = velocity;
         }
         else
         {
