@@ -8,6 +8,8 @@ public class Gun : MonoBehaviour
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private float _fireRate = 0.2f;
     [SerializeField] private float _bulletSpeed = 20f;
+    [SerializeField] private Inventories _inventory;
+    [SerializeField] private CollectItems _collectManager;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -52,6 +54,7 @@ public class Gun : MonoBehaviour
     {
         GameObject bullet = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
+        _collectManager.AddAmmo(-1);
         if(rb != null)
         {
             rb.linearVelocity = _bulletSpawnPoint.forward * _bulletSpeed;
