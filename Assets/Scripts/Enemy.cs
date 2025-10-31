@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int _maxLife = 100;
     [SerializeField] private CollectItems _collectManager;
 
+    private bool _isAlive = true;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,12 +28,8 @@ public class Enemy : MonoBehaviour
         {
             _player = GameObject.Find("Player");
         }
-
-        if (_life <= 0)
-        {
-            Destroy(gameObject);
-            _collectManager.AddCoins(2);
-        }
+        
+        EnemyDeath();
     }
 
     void EnemyFollow()
@@ -41,4 +39,18 @@ public class Enemy : MonoBehaviour
 
         transform.LookAt(_player.transform.position);
     }
+
+    void EnemyDeath()
+    {
+        if (_life <= 0)
+        {
+            if (_isAlive)
+            {
+                _collectManager.AddCoins(2);
+                _isAlive = false;
+            }
+            Destroy(gameObject);
+        }
+    }
+
 }
