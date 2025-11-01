@@ -1,12 +1,19 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private GameObject _player;
     [SerializeField] private float _speed = 0.1f;
-    public int _life;
+    private int _life;
     [SerializeField] private int _maxLife = 100;
     [SerializeField] private CollectItems _collectManager;
+
+    [SerializeField] private Slider _sliderHealthBar;
+    [SerializeField] private Transform _canvaHealthTransform;
+    private Transform _mainCamera;
+
+    [SerializeField] private int _damages = 25;
 
     private bool _isAlive = true;
 
@@ -15,6 +22,9 @@ public class Enemy : MonoBehaviour
     {
         _life = _maxLife;
         _collectManager = GameObject.Find("CollectManager").gameObject.GetComponent<CollectItems>();
+        _sliderHealthBar.maxValue = _maxLife;
+        _sliderHealthBar.value = _life;
+        _mainCamera = Camera.main.transform;
     }
 
     // Update is called once per frame
@@ -29,7 +39,7 @@ public class Enemy : MonoBehaviour
             _player = GameObject.Find("Player");
         }
         
-        EnemyDeath();
+        HealthBarLook();
     }
 
     void EnemyFollow()
@@ -53,4 +63,26 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void UpdateLife(int amount)
+    {
+        _life -= amount;
+        _sliderHealthBar.value = _life;
+        EnemyDeath();
+    }
+
+    void HealthBarLook()
+    {
+        if (_canvaHealthTransform != null && _mainCamera != null)
+        {
+            _canvaHealthTransform.LookAt(_canvaHealthTransform.position + _mainCamera.forward);
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject == _player)
+        {
+            collision.gameObject.GetComponent<Player>().ApplyDamage(_damages);
+        }
+    }
 }

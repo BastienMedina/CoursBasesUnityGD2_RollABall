@@ -270,6 +270,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damages: 25
+  _audioSource: {fileID: 0}
+  _hitSound: {fileID: 8300000, guid: ddd50cf6331ceb44d9fab3ceb599d433, type: 3}
 --- !u!1 &7685341599338768239
 GameObject:
   m_ObjectHideFlags: 0
