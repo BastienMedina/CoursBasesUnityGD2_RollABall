@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d8e3d03e2377ee40b32937a934fc271, type: 3}
   m_Name: Inventory
   m_EditorClassIdentifier: 
-  ammo: 100
+  ammo: 23

@@ -43,4 +43,9 @@ public class ButtonManager : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }

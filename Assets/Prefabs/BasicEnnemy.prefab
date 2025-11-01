@@ -643,6 +643,7 @@ MonoBehaviour:
   _speed: 4
   _maxLife: 100
   _collectManager: {fileID: 0}
+  _starPrefab: {fileID: 1696302377347113457, guid: e99d9bd5f07de1646b895b870284897a, type: 3}
   _sliderHealthBar: {fileID: 112880166804465230}
   _canvaHealthTransform: {fileID: 6492851537428771192}
   _damages: 25

@@ -8,7 +8,7 @@ public class Star : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        _collect = GameObject.Find("CollectManager").gameObject.GetComponent<CollectItems>();
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class Star : MonoBehaviour
 
     void OnCollisionEnter (Collision collision)
     {
-        if (collision.gameObject.GetComponent<PlayerMouvements>() != null)
+        if (collision.gameObject.GetComponent<Player>() != null)
         {
             _collect.AddCoins(StarAmount);
             Destroy(gameObject);

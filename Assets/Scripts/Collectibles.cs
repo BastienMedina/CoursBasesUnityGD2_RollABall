@@ -4,4 +4,5 @@ using UnityEngine;
 public class Collectibles : ScriptableObject
 {
     public int _coins;
+    public int score;
 }

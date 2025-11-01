@@ -6,18 +6,18 @@ public class Gun : MonoBehaviour
     [SerializeField] private Camera _mainCamera;
     [SerializeField] private Transform _bulletSpawnPoint;
     [SerializeField] private GameObject _bulletPrefab;
-    [SerializeField] private float _fireRate = 0.2f;
     [SerializeField] private float _bulletSpeed = 20f;
     [SerializeField] private Inventories _inventory;
     [SerializeField] private CollectItems _collectManager;
     [SerializeField] private AudioClip _shootSound;
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private WeaponsCaracteristics _gunCaracteristics;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -47,7 +47,7 @@ public class Gun : MonoBehaviour
 
         if(Input.GetMouseButtonDown(0))
         {
-            InvokeRepeating(nameof(LaunchBullet), 0f, _fireRate);
+            InvokeRepeating(nameof(LaunchBullet), 0f, _gunCaracteristics.fireRate);
         }
 
     }

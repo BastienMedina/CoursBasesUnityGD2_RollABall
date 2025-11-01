@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     private int _life;
     [SerializeField] private int _maxLife = 100;
     [SerializeField] private CollectItems _collectManager;
+    [SerializeField] private GameObject _starPrefab;
 
     [SerializeField] private Slider _sliderHealthBar;
     [SerializeField] private Transform _canvaHealthTransform;
@@ -56,9 +57,10 @@ public class Enemy : MonoBehaviour
         {
             if (_isAlive)
             {
-                _collectManager.AddCoins(2);
+                _collectManager.AddScore(1);
                 _isAlive = false;
             }
+            Instantiate(_starPrefab, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
