@@ -982,6 +982,9 @@ MonoBehaviour:
   _shopScreen: {fileID: 320559235}
   _ammoPrice: 15
   _fireRatePrice: 20
+  _gamePaused: 0
+  _textFireRate: {fileID: 1784958012}
+  _buttonFireRate: {fileID: 1726269906}
 --- !u!225 &320559235
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2118,6 +2121,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9184673026452817779, guid: 68a489b81134d1d469f7889eb079d2dc, type: 3}
+      propertyPath: _collectItems
+      value: 
+      objectReference: {fileID: 860062868}
     - target: {fileID: 9184673026452817779, guid: 68a489b81134d1d469f7889eb079d2dc, type: 3}
       propertyPath: _respawnManager
       value: 
@@ -5896,7 +5903,7 @@ GameObject:
   - component: {fileID: 1784958013}
   - component: {fileID: 1784958012}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TextButtonFireRate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6020,6 +6027,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1784958010}
   m_CullTransparentMesh: 1
+--- !u!1 &1799101323 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8407290822433206002, guid: f99c577cf60147248a2989e92fac5764, type: 3}
+  m_PrefabInstance: {fileID: 2058651927}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1799101328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799101323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64db46fe89fb49448b8554e1e7bd94be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shakeDuration: 0
+  _shakeMagnitude: 0.1
+  _dampingSpeed: 1
 --- !u!1 &1813191289
 GameObject:
   m_ObjectHideFlags: 0
@@ -7073,6 +7100,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7867220126617268748, guid: f99c577cf60147248a2989e92fac5764, type: 3}
+      propertyPath: _shop
+      value: 
+      objectReference: {fileID: 320559234}
+    - target: {fileID: 7867220126617268748, guid: f99c577cf60147248a2989e92fac5764, type: 3}
       propertyPath: _inventory
       value: 
       objectReference: {fileID: 11400000, guid: ad94bde9ecbec3e4ca4f57b782a2b22e, type: 2}
@@ -7085,6 +7116,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1041946846}
     - target: {fileID: 7867220126617268748, guid: f99c577cf60147248a2989e92fac5764, type: 3}
+      propertyPath: _cameraShake
+      value: 
+      objectReference: {fileID: 1799101328}
+    - target: {fileID: 7867220126617268748, guid: f99c577cf60147248a2989e92fac5764, type: 3}
       propertyPath: _collectManager
       value: 
       objectReference: {fileID: 860062868}
@@ -7095,7 +7130,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8407290822433206002, guid: f99c577cf60147248a2989e92fac5764, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1799101328}
   m_SourcePrefab: {fileID: 100100000, guid: f99c577cf60147248a2989e92fac5764, type: 3}
 --- !u!1 &2059635331
 GameObject:

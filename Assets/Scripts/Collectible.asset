@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77efd1bd8ce8900478a4d33ac1e62266, type: 3}
   m_Name: Collectible
   m_EditorClassIdentifier: 
-  _coins: 34
-  score: 17
+  _coins: 2650
+  score: 57

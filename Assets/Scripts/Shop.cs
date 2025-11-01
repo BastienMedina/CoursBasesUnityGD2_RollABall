@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
@@ -14,12 +15,16 @@ public class Shop : MonoBehaviour
     [SerializeField] private int _fireRatePrice = 20;
 
     private bool _canBuy = false;
-    private bool _gamePaused = false;
+    public bool _gamePaused = false;
+
+    [SerializeField] private TextMeshProUGUI _textFireRate;
+    [SerializeField] private Button _buttonFireRate;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         CloseShop();
+        _buttonFireRate.interactable = true;
     }
 
     // Update is called once per frame
@@ -65,9 +70,10 @@ public class Shop : MonoBehaviour
         if (_canBuy)
         {
             _gunCaracteristics.fireRate -= 0.1f;
-            if (_gunCaracteristics.fireRate <= 0 )
+            if (_gunCaracteristics.fireRate <= 0.1f )
             {
-
+                _buttonFireRate.interactable = false;
+                _textFireRate.text = "MAX";
             }
             _fireRatePrice += _fireRatePrice * 2;
         }

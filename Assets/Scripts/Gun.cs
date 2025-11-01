@@ -12,6 +12,8 @@ public class Gun : MonoBehaviour
     [SerializeField] private AudioClip _shootSound;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private WeaponsCaracteristics _gunCaracteristics;
+    [SerializeField] private Shop _shop;
+    [SerializeField] private CameraShake _cameraShake;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -47,7 +49,10 @@ public class Gun : MonoBehaviour
 
         if(Input.GetMouseButtonDown(0))
         {
-            InvokeRepeating(nameof(LaunchBullet), 0f, _gunCaracteristics.fireRate);
+            if (_shop._gamePaused == false)
+            {
+                InvokeRepeating(nameof(LaunchBullet), 0f, _gunCaracteristics.fireRate);
+            }
         }
 
     }
@@ -60,6 +65,7 @@ public class Gun : MonoBehaviour
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
              _collectManager.AddAmmo(-1);
             _audioSource.PlayOneShot(_shootSound);
+            _cameraShake.TriggerShake(0.1f, 0.05f);
             if(rb != null)
             {
                 rb.linearVelocity = _bulletSpawnPoint.forward * _bulletSpeed;

@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     [SerializeField] private RespawnManager _respawnManager;
     private int _maxLife = 150;
     private int _life;
+    [SerializeField] private CollectItems _collectItems;
 
     [SerializeField] private Slider _healthBarSlider;
 
@@ -15,6 +16,8 @@ public class Player : MonoBehaviour
         _life = _maxLife;
         _healthBarSlider.maxValue = _maxLife;
         _healthBarSlider.value = _life;
+        _collectItems = GameObject.Find("CollectManager").GetComponent<CollectItems>();
+        _collectItems.ResetStats();
     }
 
     // Update is called once per frame

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291affdfc54b96d40bfda774e6cd55bc, type: 3}
   m_Name: GunCaracteristics
   m_EditorClassIdentifier: 
-  fireRate: 0.8
+  fireRate: 0.09999999
   magazinCapacity: 30
