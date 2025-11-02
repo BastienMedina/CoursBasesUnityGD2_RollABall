@@ -20,6 +20,8 @@ public class Shop : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _textFireRate;
     [SerializeField] private Button _buttonFireRate;
 
+    [SerializeField] private SpawnerEnemy _spawnerEnemy;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -76,6 +78,7 @@ public class Shop : MonoBehaviour
                 _textFireRate.text = "MAX";
             }
             _fireRatePrice += _fireRatePrice * 2;
+            _spawnerEnemy.IncreaseRateOfSpawn(0.2f);
         }
     }
 

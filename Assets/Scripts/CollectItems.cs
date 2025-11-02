@@ -4,6 +4,7 @@ public class CollectItems : MonoBehaviour
 {
     [SerializeField] private Collectibles _collectibles;
     [SerializeField] private Inventories _inventory;
+    [SerializeField] private WeaponsCaracteristics _gunCaracteristics;
 
     public void AddCoins(int amount)
     {
@@ -25,5 +26,6 @@ public class CollectItems : MonoBehaviour
         _collectibles._coins = 0;
         _inventory.ammo = 100;
         _collectibles.score = 0;
+        _gunCaracteristics.fireRate = 0.8f;
     }
 }

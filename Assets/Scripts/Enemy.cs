@@ -18,6 +18,11 @@ public class Enemy : MonoBehaviour
 
     private bool _isAlive = true;
 
+    [SerializeField] private bool _boss = false;
+    [SerializeField] private Shop _shop;
+    [SerializeField] private ButtonManager _buttonManager;
+    [SerializeField] private CanvasGroup _winScreen;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,6 +31,9 @@ public class Enemy : MonoBehaviour
         _sliderHealthBar.maxValue = _maxLife;
         _sliderHealthBar.value = _life;
         _mainCamera = Camera.main.transform;
+        _shop = GameObject.Find("Shop").GetComponent<Shop>();
+        _buttonManager = GameObject.Find("UIManager").GetComponent<ButtonManager>();
+        _winScreen = GameObject.Find("WinScreen").GetComponent<CanvasGroup>();
     }
 
     // Update is called once per frame
@@ -55,12 +63,21 @@ public class Enemy : MonoBehaviour
     {
         if (_life <= 0)
         {
-            if (_isAlive)
+            if (_boss == false)
             {
-                _collectManager.AddScore(1);
-                _isAlive = false;
+                if (_isAlive)
+                {
+                    _collectManager.AddScore(1);
+                    _isAlive = false;
+                }
+                Instantiate(_starPrefab, transform.position, transform.rotation);
             }
-            Instantiate(_starPrefab, transform.position, transform.rotation);
+            else
+            {
+                _shop._gamePaused = true;
+                Time.timeScale = 0;
+                _buttonManager.ShowScreen(_winScreen);
+            }
             Destroy(gameObject);
         }
     }
