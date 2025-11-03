@@ -10,7 +10,7 @@ public class SpawnerEnemy : MonoBehaviour
     [SerializeField] private GameObject _bossEnemyPrefab;
 
     private Transform _randomSpawner;
-    private int _enemyQuantitySpawn = 99;
+    private int _enemyQuantitySpawn = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
