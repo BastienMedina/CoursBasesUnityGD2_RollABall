@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Shop _shop;
     [SerializeField] private ButtonManager _buttonManager;
     [SerializeField] private CanvasGroup _winScreen;
+    [SerializeField] private ButtonManager _uiManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -71,12 +72,6 @@ public class Enemy : MonoBehaviour
                     _isAlive = false;
                 }
                 Instantiate(_starPrefab, transform.position, transform.rotation);
-            }
-            else
-            {
-                _shop._gamePaused = true;
-                Time.timeScale = 0;
-                _buttonManager.ShowScreen(_winScreen);
             }
             Destroy(gameObject);
         }

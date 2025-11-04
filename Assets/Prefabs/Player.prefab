@@ -32,11 +32,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6463343758349599736}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 15, y: -563}
-  m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 15, y: 15}
+  m_SizeDelta: {x: 414.9813, y: 99.34}
+  m_Pivot: {x: 0, y: 0}
 --- !u!222 &6248013564726894361
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -92,8 +92,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -283,7 +283,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -15, y: 0}
-  m_SizeDelta: {x: 180, y: 40}
+  m_SizeDelta: {x: 330.0924, y: 80.3696}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &7034554358027341609
 MonoBehaviour:
@@ -405,7 +405,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 28c130edd1f25044c8eec063a85337b3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -487,7 +487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c08442eb4895804f875d14b7124bdf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 6
+  _upgradeSpeed: {fileID: 11400000, guid: 2b70746bbb43b8f4f813c39b78a6a049, type: 2}
 --- !u!114 &9184673026452817779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,7 +501,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _respawnManager: {fileID: 0}
+  _collectItems: {fileID: 0}
   _healthBarSlider: {fileID: 7034554358027341609}
+  _upgradeLife: {fileID: 11400000, guid: 942402eb13cba6548b2bf0c7528fdef8, type: 2}
 --- !u!1 &8441841825153283775
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,7 +538,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 15, y: -69.5}
+  m_AnchoredPosition: {x: 15, y: -127}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &5781403086217826767
@@ -594,8 +596,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -721,6 +723,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 540021177457409736}
     m_Modifications:
+    - target: {fileID: 2293685649464967160, guid: 24fc17c446445954e8658e4bc2b67571, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 392.3535
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293685649464967160, guid: 24fc17c446445954e8658e4bc2b67571, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 96.3912
+      objectReference: {fileID: 0}
     - target: {fileID: 5855010713840431392, guid: 24fc17c446445954e8658e4bc2b67571, type: 3}
       propertyPath: m_Name
       value: CoinsText
@@ -817,6 +827,14 @@ PrefabInstance:
       propertyPath: _inventory
       value: 
       objectReference: {fileID: 11400000, guid: ad94bde9ecbec3e4ca4f57b782a2b22e, type: 2}
+    - target: {fileID: 7217501850136772147, guid: 24fc17c446445954e8658e4bc2b67571, type: 3}
+      propertyPath: m_fontSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7217501850136772147, guid: 24fc17c446445954e8658e4bc2b67571, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 9017235820170966561, guid: 24fc17c446445954e8658e4bc2b67571, type: 3}
       propertyPath: m_Name
       value: HUD

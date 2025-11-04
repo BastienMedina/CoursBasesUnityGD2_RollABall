@@ -8,25 +8,21 @@ public class Shop : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _fireRatePriceText;
     [SerializeField] private Collectibles _collectibles;
     [SerializeField] private Inventories _inventory;
-    [SerializeField] private WeaponsCaracteristics _gunCaracteristics;
     [SerializeField] private CanvasGroup _shopScreen;
+    [SerializeField] private ButtonManager _uiManager;
 
     [SerializeField] private int _ammoPrice = 15;
     [SerializeField] private int _fireRatePrice = 20;
+    [SerializeField] private Player _playerScript;
 
     private bool _canBuy = false;
-    public bool _gamePaused = false;
 
-    [SerializeField] private TextMeshProUGUI _textFireRate;
-    [SerializeField] private Button _buttonFireRate;
-
-    [SerializeField] private SpawnerEnemy _spawnerEnemy;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         CloseShop();
-        _buttonFireRate.interactable = true;
+        _playerScript = GameObject.Find("Player").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -34,7 +30,7 @@ public class Shop : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            if(_gamePaused)
+            if(_uiManager.gamePause)
             {
                 CloseShop();
             }
@@ -71,14 +67,7 @@ public class Shop : MonoBehaviour
         Buy(_fireRatePrice);
         if (_canBuy)
         {
-            _gunCaracteristics.fireRate -= 0.1f;
-            if (_gunCaracteristics.fireRate <= 0.1f )
-            {
-                _buttonFireRate.interactable = false;
-                _textFireRate.text = "MAX";
-            }
-            _fireRatePrice += _fireRatePrice * 2;
-            _spawnerEnemy.IncreaseRateOfSpawn(0.2f);
+            _playerScript.ResetPlayerLife();
         }
     }
 
@@ -88,7 +77,7 @@ public class Shop : MonoBehaviour
         _shopScreen.interactable = true;
         _shopScreen.blocksRaycasts = true;
         Time.timeScale = 0;
-        _gamePaused = true;
+        _uiManager.gamePause = true;
     }
 
     void CloseShop()
@@ -97,7 +86,7 @@ public class Shop : MonoBehaviour
         _shopScreen.interactable = false;
         _shopScreen.blocksRaycasts = false;
         Time.timeScale = 1;
-        _gamePaused = false;
+        _uiManager.gamePause = false;
     }
 
     void ShowPrice(int price, TextMeshProUGUI text)

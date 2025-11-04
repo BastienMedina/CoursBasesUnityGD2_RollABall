@@ -15,4 +15,4 @@ MonoBehaviour:
   title: Life
   description: Increase your life
   increaseData: 5
-  value: 100
+  value: 150

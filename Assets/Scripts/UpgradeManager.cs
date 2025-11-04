@@ -24,14 +24,30 @@ public class UpgradeManager : MonoBehaviour
 
     [SerializeField] private CanvasGroup _upgradeScreen;
 
+    [SerializeField] private Collectibles _collectible;
+    [SerializeField] private ButtonManager _uiManager;
+
+
     private List<int> _listIndexUpgrades;
     private List<UpgradesDatas> _listUpgrades;
-    private int id = 3;
+    private int _scoreNextUpgrades = 15;
+    private int _upgradesQuantity = 0;
 
     void Update()
     {
-        GenerateRamdomUpgradeNumber();
-        ShowOrHideUpgradeScreen(false);
+        VerifCanShow();
+        if (_listUpgrades.Contains(_upgradeFireRate))
+        {
+            if (_upgradeFireRate.value <= 0.1)
+            {
+                _listUpgrades.Remove(_upgradeFireRate);
+            }
+        }
+        
+        if (_upgradesQuantity >= 11)
+        {
+            _uiManager.WinGame();
+        }
     }
 
     void Start()
@@ -44,6 +60,7 @@ public class UpgradeManager : MonoBehaviour
             _upgradeDamages,
             _upgradeCoins
         };
+        _listIndexUpgrades = new List<int>();
         ShowOrHideUpgradeScreen(false);
     }
 
@@ -69,14 +86,15 @@ public class UpgradeManager : MonoBehaviour
     {
         if (_showScreen)
         {
+            GenerateRamdomUpgradeNumber();
             Time.timeScale = 0f;
-            id = 0;
             _upgradeScreen.alpha = 1f;
             _upgradeScreen.interactable = true;
             _upgradeScreen.blocksRaycasts = true;
             SetButtonUpgrade(_listUpgrades[_listIndexUpgrades[0]], _ButtonUpgrade01, _textButtonTitleUpgrade01, _textButtonUnderUpgrade01, UpgradeArguments, 0);
             SetButtonUpgrade(_listUpgrades[_listIndexUpgrades[1]], _ButtonUpgrade02, _textButtonTitleUpgrade02, _textButtonUnderUpgrade02, UpgradeArguments, 1);
             SetButtonUpgrade(_listUpgrades[_listIndexUpgrades[2]], _ButtonUpgrade03, _textButtonTitleUpgrade03, _textButtonUnderUpgrade03, UpgradeArguments, 2);
+            _upgradesQuantity++;
         }
         else
         {
@@ -90,18 +108,25 @@ public class UpgradeManager : MonoBehaviour
 
     void GenerateRamdomUpgradeNumber()
     {
-        if (id < 3)
-        {
-            int index = UnityEngine.Random.Range(0, _listUpgrades.Count - 1);
-            if (_listIndexUpgrades.Contains(index))
-            {
+        _listIndexUpgrades.Clear();
 
-            }
-            else
+        while (_listIndexUpgrades.Count < 3)
+        {
+            int index = UnityEngine.Random.Range(0, _listUpgrades.Count);
+
+            if (!_listIndexUpgrades.Contains(index))
             {
                 _listIndexUpgrades.Add(index);
-                id++;
             }
+        }
+    }
+
+    void VerifCanShow()
+    {
+        if (_collectible.score >= _scoreNextUpgrades)
+        {
+            ShowOrHideUpgradeScreen(true);
+            _scoreNextUpgrades += _scoreNextUpgrades / 2;
         }
     }
 

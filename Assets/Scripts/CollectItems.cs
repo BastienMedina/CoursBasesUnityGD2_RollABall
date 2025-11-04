@@ -6,9 +6,9 @@ public class CollectItems : MonoBehaviour
     [SerializeField] private Inventories _inventory;
     [SerializeField] private WeaponsCaracteristics _gunCaracteristics;
 
-    public void AddCoins(int amount)
+    public void AddCoins(float amount)
     {
-        _collectibles._coins += amount;
+        _collectibles._coins += Mathf.RoundToInt(amount);
     }
 
     public void AddAmmo(int amount)

@@ -163,7 +163,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collect: {fileID: 0}
-  StarAmount: 2
+  _rotationSpeed: 90
+  _amplitude: 0.25
+  _frequency: 2
+  _upgradeCoins: {fileID: 11400000, guid: bbd6eb4a4f4a74a4cbb6fd0fe0c6f736, type: 2}
 --- !u!1 &5953836195283804080
 GameObject:
   m_ObjectHideFlags: 0

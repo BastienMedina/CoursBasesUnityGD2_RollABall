@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Timeline;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -9,7 +10,10 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private Shop _shop;
     [SerializeField] private CanvasGroup _pauseScreen;
     [SerializeField] private CollectItems _collectItems;
-    
+
+    public bool gamePause = false;
+
+
     void Start()
     {
         HideScreen(_deathScreen);
@@ -19,13 +23,13 @@ public class ButtonManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (_shop._gamePaused == false)
+            if (gamePause == false)
             {
                 ShowScreen(_pauseScreen);
                 Time.timeScale = 0;
-                _shop._gamePaused = true;
+                gamePause = true;
             }
             else
             {
@@ -74,7 +78,7 @@ public class ButtonManager : MonoBehaviour
     {
         HideScreen(_pauseScreen);
         Time.timeScale = 1;
-        _shop._gamePaused = false;
+        gamePause = false;
     }
 
     public void ResetLevel(string sceneName)
@@ -82,7 +86,13 @@ public class ButtonManager : MonoBehaviour
         _collectItems.ResetStats();
         LoadNewScene(sceneName);
         Time.timeScale = 1;
-        _shop._gamePaused = false;
+        gamePause = false;
     }
 
+    public void WinGame()
+    {
+        ShowScreen(_winScreen);
+        gamePause = true;
+        Time.timeScale = 0f;
+    }
 }

@@ -3,11 +3,11 @@ using UnityEngine;
 public class Star : MonoBehaviour
 {
     [SerializeField] private CollectItems _collect;
-    [SerializeField] private int StarAmount = 2;
 
     [SerializeField] private float _rotationSpeed = 90f;
     [SerializeField] private float _amplitude = 0.25f;
     [SerializeField] private float _frequency = 2f;
+    [SerializeField] private UpgradesDatas _upgradeCoins;
     private Vector3 _startPosition;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -27,7 +27,7 @@ public class Star : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Player>() != null)
         {
-            _collect.AddCoins(StarAmount);
+            _collect.AddCoins(_upgradeCoins.value);
             Destroy(gameObject);
         }
     }

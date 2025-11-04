@@ -97,7 +97,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: a846aff574009494782a83a95c232fa9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -189,8 +189,14 @@ MonoBehaviour:
   _mainCamera: {fileID: 6478763069421337246}
   _bulletSpawnPoint: {fileID: 1075198417191714478}
   _bulletPrefab: {fileID: 6381670377738928901, guid: 78c6f7ec091b88b4dac54fabdb3ce8d7, type: 3}
-  _fireRate: 0.2
   _bulletSpeed: 20
+  _inventory: {fileID: 11400000, guid: ad94bde9ecbec3e4ca4f57b782a2b22e, type: 2}
+  _collectManager: {fileID: 0}
+  _shootSound: {fileID: 8300000, guid: c6ad37423f28db54581811d58b035425, type: 3}
+  _audioSource: {fileID: 0}
+  _shop: {fileID: 0}
+  _cameraShake: {fileID: 4721845334550621678}
+  _fireRateUpgrade: {fileID: 11400000, guid: 5ecfaccc103f7374bada6a4c655031dd, type: 2}
 --- !u!1 &3535340119682285385
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +310,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: a1d5b6a849dbd1144aef9de52a488924, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -413,7 +419,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: a846aff574009494782a83a95c232fa9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -522,7 +528,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: a846aff574009494782a83a95c232fa9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -577,6 +583,7 @@ GameObject:
   - component: {fileID: 6478763069421337246}
   - component: {fileID: 1127047790538911502}
   - component: {fileID: 8037170616810016946}
+  - component: {fileID: 4721845334550621678}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -702,3 +709,18 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &4721845334550621678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8407290822433206002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64db46fe89fb49448b8554e1e7bd94be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shakeDuration: 0
+  _shakeMagnitude: 0.1
+  _dampingSpeed: 1

@@ -11,9 +11,10 @@ public class Gun : MonoBehaviour
     [SerializeField] private CollectItems _collectManager;
     [SerializeField] private AudioClip _shootSound;
     [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private WeaponsCaracteristics _gunCaracteristics;
     [SerializeField] private Shop _shop;
     [SerializeField] private CameraShake _cameraShake;
+    [SerializeField] private UpgradesDatas _fireRateUpgrade;
+    [SerializeField] private ButtonManager _uiManager;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -35,9 +36,9 @@ public class Gun : MonoBehaviour
         mousePos.z = Vector3.Distance(_mainCamera.transform.position, _gunRotor.transform.position); // on donne la profondeur sur l'axe z de la position de la sourie pour savoir 
                                                                                                      // sa position dans le monde
         Vector3 targetPos = _mainCamera.ScreenToWorldPoint(mousePos); // convertie la position du curseur de pixel de l'ecran en vecteur 3D
-        Vector3 direction = targetPos - _gunRotor.transform.position; // calcule la distance entre le rotor du gun et le point de visée du curseur
-        direction.y = 0; // bloque la visée perpendiculaire au sol
-        _gunRotor.transform.rotation = Quaternion.LookRotation(direction); // fait tournée le rotor pour qu'il regarde dans la direction "direction" qui correspond au point du curseur dans le monde
+        Vector3 direction = targetPos - _gunRotor.transform.position; // calcule la distance entre le rotor du gun et le point de visï¿½e du curseur
+        direction.y = 0; // bloque la visï¿½e perpendiculaire au sol
+        _gunRotor.transform.rotation = Quaternion.LookRotation(direction); // fait tournï¿½e le rotor pour qu'il regarde dans la direction "direction" qui correspond au point du curseur dans le monde
     }
 
     void Shoot()
@@ -49,9 +50,9 @@ public class Gun : MonoBehaviour
 
         if(Input.GetMouseButtonDown(0))
         {
-            if (_shop._gamePaused == false)
+            if (_uiManager.gamePause == false)
             {
-                InvokeRepeating(nameof(LaunchBullet), 0f, _gunCaracteristics.fireRate);
+                InvokeRepeating(nameof(LaunchBullet), 0f, _fireRateUpgrade.value);
             }
         }
 
