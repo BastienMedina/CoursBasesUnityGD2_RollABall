@@ -10,6 +10,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private Inventories _inventory;
     [SerializeField] private CollectItems _collectManager;
     [SerializeField] private AudioClip _shootSound;
+    [SerializeField] private AudioClip _noBulletsSound;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private Shop _shop;
     [SerializeField] private CameraShake _cameraShake;
@@ -20,7 +21,7 @@ public class Gun : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        _uiManager = GameObject.Find("UIManager").GetComponent<ButtonManager>();
     }
 
     // Update is called once per frame
@@ -64,14 +65,18 @@ public class Gun : MonoBehaviour
         {
             GameObject bullet = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
-             _collectManager.AddAmmo(-1);
+            _collectManager.AddAmmo(-1);
             _audioSource.PlayOneShot(_shootSound);
             _cameraShake.TriggerShake(0.1f, 0.05f);
-            if(rb != null)
+            if (rb != null)
             {
                 rb.linearVelocity = _bulletSpawnPoint.forward * _bulletSpeed;
             }
             Destroy(bullet, 3f);
+        }
+        else
+        {
+            _audioSource.PlayOneShot(_noBulletsSound);
         }
     }
 }

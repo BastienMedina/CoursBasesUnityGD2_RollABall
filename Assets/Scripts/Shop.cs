@@ -14,6 +14,9 @@ public class Shop : MonoBehaviour
     [SerializeField] private int _ammoPrice = 15;
     [SerializeField] private int _fireRatePrice = 20;
     [SerializeField] private Player _playerScript;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _cashRegisterSound;
+    [SerializeField] private AudioClip _errorSound;
 
     private bool _canBuy = false;
 
@@ -59,6 +62,11 @@ public class Shop : MonoBehaviour
         {
             _collectibles._coins -= price;
             _canBuy = true;
+            _audioSource.PlayOneShot(_cashRegisterSound);
+        }
+        else
+        {
+            _audioSource.PlayOneShot(_errorSound);
         }
     }
 
@@ -68,6 +76,7 @@ public class Shop : MonoBehaviour
         if (_canBuy)
         {
             _playerScript.ResetPlayerLife();
+            _canBuy = false;
         }
     }
 
