@@ -980,10 +980,10 @@ MonoBehaviour:
   _collectibles: {fileID: 11400000, guid: 4f3335fc3e5f020428dad633d7a69c96, type: 2}
   _inventory: {fileID: 11400000, guid: ad94bde9ecbec3e4ca4f57b782a2b22e, type: 2}
   _shopScreen: {fileID: 320559235}
+  _uiManager: {fileID: 0}
   _ammoPrice: 15
   _fireRatePrice: 20
   _playerScript: {fileID: 1563724010}
-  _gamePaused: 0
 --- !u!225 &320559235
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1080,7 +1080,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35.1
+  m_fontSize: 20.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1565,7 +1565,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 58.95
+  m_fontSize: 34.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3067,7 +3067,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48.1
+  m_fontSize: 27.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3497,7 +3497,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 219.4
+  m_fontSize: 127.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3991,7 +3991,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60.45
+  m_fontSize: 34.85
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5508,7 +5508,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 49.35
+  m_fontSize: 28.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5988,6 +5988,7 @@ MonoBehaviour:
   _shop: {fileID: 320559234}
   _pauseScreen: {fileID: 1478466713}
   _collectItems: {fileID: 860062868}
+  gamePause: 0
 --- !u!4 &1639482077
 Transform:
   m_ObjectHideFlags: 0
@@ -6591,7 +6592,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 62.2
+  m_fontSize: 35.85
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6860,7 +6861,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36.15
+  m_fontSize: 21
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -8393,7 +8394,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 56
+  m_fontSize: 31.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -8529,7 +8530,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 37
+  m_fontSize: 21.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -8698,6 +8699,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 809343715304786387, guid: 9a888ab0481409144ac1d21b77ea15c7, type: 3}
+      propertyPath: m_fontSize
+      value: 40.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 809343715304786387, guid: 9a888ab0481409144ac1d21b77ea15c7, type: 3}
+      propertyPath: m_margin.y
+      value: 41.96576
+      objectReference: {fileID: 0}
     - target: {fileID: 2325988197956707936, guid: 9a888ab0481409144ac1d21b77ea15c7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -8778,9 +8787,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4050208347610197888, guid: 9a888ab0481409144ac1d21b77ea15c7, type: 3}
+      propertyPath: m_fontSize
+      value: 40.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4050208347610197888, guid: 9a888ab0481409144ac1d21b77ea15c7, type: 3}
+      propertyPath: m_margin.y
+      value: 40.15335
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532010427658551114, guid: 9a888ab0481409144ac1d21b77ea15c7, type: 3}
+      propertyPath: m_fontSize
+      value: 41.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532010427658551114, guid: 9a888ab0481409144ac1d21b77ea15c7, type: 3}
+      propertyPath: m_margin.w
+      value: 41.155685
+      objectReference: {fileID: 0}
     - target: {fileID: 4741764642670839900, guid: 9a888ab0481409144ac1d21b77ea15c7, type: 3}
       propertyPath: m_Name
       value: UpgradesScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949041646965941825, guid: 9a888ab0481409144ac1d21b77ea15c7, type: 3}
+      propertyPath: m_fontSize
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949041646965941825, guid: 9a888ab0481409144ac1d21b77ea15c7, type: 3}
+      propertyPath: m_margin.y
+      value: 41.850357
+      objectReference: {fileID: 0}
+    - target: {fileID: 8584354407249008808, guid: 9a888ab0481409144ac1d21b77ea15c7, type: 3}
+      propertyPath: m_fontSize
+      value: 40.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8584354407249008808, guid: 9a888ab0481409144ac1d21b77ea15c7, type: 3}
+      propertyPath: m_margin.w
+      value: 40.150085
+      objectReference: {fileID: 0}
+    - target: {fileID: 9131500223335628067, guid: 9a888ab0481409144ac1d21b77ea15c7, type: 3}
+      propertyPath: m_fontSize
+      value: 41.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9131500223335628067, guid: 9a888ab0481409144ac1d21b77ea15c7, type: 3}
+      propertyPath: m_margin.w
+      value: 41.492004
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
